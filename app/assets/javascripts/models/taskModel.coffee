@@ -8,12 +8,20 @@
     params = {
       url: this.rootURL + '/tasks.json',
       method: 'GET'
-    };
-    promise = @_request(params);
-    promise.done((response) =>
-      $.publish('tasks.loaded', [response ]);
-    )
-
+    }
+    @_request(params)
+      .done((response) =>
+        $.publish('tasks.loaded', [response]);
+      )
+  show: (id) ->
+    params = {
+      url: this.rootURL + "/tasks/#{id}.json",
+      method: 'GET'
+    }
+    @_request(params)
+      .done((response) =>
+        $.publish('task.loaded', [response]);
+      )
   _request: (params) ->
     deferred = $.ajax(params)
     return deferred.promise()

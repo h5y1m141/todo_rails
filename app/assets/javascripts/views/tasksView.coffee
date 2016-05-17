@@ -6,9 +6,8 @@
 
   show: (items) ->
     elements = []
-    console.log items
     items.forEach( (item, index) ->
-      elements.push('<li>' + item.title + '</li>')
+      elements.push("<li data-task-id=#{item.id} class='task__detail' >" + item.title + '</li>')
     )
     @$tasksView.append(elements)
     @$tasksView.show()
