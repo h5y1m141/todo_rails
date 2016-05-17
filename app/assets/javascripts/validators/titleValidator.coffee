@@ -2,4 +2,10 @@
   constructor: () ->
 
   validLength: (str) ->
-    return str.length < 10
+    d = new $.Deferred
+    if str.length < 10
+      d.resolve()
+    else
+      d.reject('Error!!')
+
+    return d.promise()

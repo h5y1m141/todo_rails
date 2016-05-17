@@ -13,10 +13,13 @@
       @model.index()
       
     $('#title').on 'blur', (event) =>
-      if(@titleValidator.validLength(event.target.value))
-        @flashView.hide()
-      else
-        @flashView.show event.target.value
+      @titleValidator.validLength(event.target.value)
+        .then( () =>
+          @flashView.hide()
+        )
+        .fail( () =>
+          @flashView.show event.target.value
+        )
             
     $('#content').on 'click', =>
       @model.show()
