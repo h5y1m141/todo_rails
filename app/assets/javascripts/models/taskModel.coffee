@@ -1,14 +1,38 @@
 @Todo -> class TaskModel
   constructor: () ->
-    @tasks = [
-      {
-        title: '今日とりかかるタスク'
-        content: 'これは最初のタスクです'
-      }
-      {
-        title: '明日とりかかるタスク'
-        content: 'これは次のタスクです'
-      }
-    ]
+    hostname = window.location.hostname
+    protocol = window.location.protocol
+    port =  window.location.port
+    this.rootURL = "#{protocol}//#{hostname}:#{port}"
   index: () ->
-    $.publish('tasks.loaded', [ @tasks ]);
+    params = {
+      url: this.rootURL + '/tasks.json',
+      method: 'GET'
+    }
+    @_request(params)
+      .done((response) =>
+        $.publish('tasks.loaded', [response]);
+      )
+  show: (id) ->
+    params = {
+      url: this.rootURL + "/tasks/#{id}.json",
+      method: 'GET'
+    }
+    @_request(params)
+      .done((response) =>
+        $.publish('task.loaded', [response]);
+      )
+  create: (_task) ->
+    params = {
+      url: this.rootURL + "/tasks.json",
+      method: 'POST'
+      data: _task
+    }
+    @_request(params)
+      .done((response) =>
+        console.log 'task create'
+        $.publish('task.create', [response]);
+      )
+  _request: (params) ->
+    deferred = $.ajax(params)
+    return deferred.promise()
