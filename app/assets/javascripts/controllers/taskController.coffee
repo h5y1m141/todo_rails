@@ -22,9 +22,8 @@
           @flashView.show event.target.value
         )
 
-    $('#content').on 'click', =>
-      @model.show()
 
     $('#tasks').on 'click', '.task__detail',  (event) =>
       taskID = $(event.target).attr('data-task-id')
       @model.show(taskID)
+

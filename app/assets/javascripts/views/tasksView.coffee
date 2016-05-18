@@ -7,7 +7,7 @@
   show: (items) ->
     elements = []
     items.forEach( (item, index) ->
-      elements.push("<li data-task-id=#{item.id} class='task__detail' >" + item.title + '</li>')
+      elements.push("<tr><td>#{item.title}</td>" + "<td><strong data-task-id=#{item.id} class='task__detail'>詳細表示</strong></td></tr>")
     )
     @$tasksView.append(elements)
     @$tasksView.show()

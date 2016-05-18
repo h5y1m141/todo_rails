@@ -1,29 +1,24 @@
-<p id="notice"><%= notice %></p>
+<h1>タスク管理</h2>
+<h2>
+  <ul>
+    <li><button id="tasks-list">タスクの確認</button></li>
+    <li><button id="task-new">タスクの作成</button></li>
+  </ul>
+  
+</h2>
 
-<h1>Listing Tasks</h1>
+<table id="tasks">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.content %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
 </table>
 
-<br>
+<div id="task">
+  <h4>タスクの詳細</h4>
+  <ul id="task-detail">
+  </ul>
+</div>
 
-<%= link_to 'New Task', new_task_path %>
+
+<div id="task-form">
+  <%= render 'form' %>
+  <button id="task-create">登録する</button>
+</div>

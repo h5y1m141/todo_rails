@@ -22,6 +22,17 @@
       .done((response) =>
         $.publish('task.loaded', [response]);
       )
+  create: (_task) ->
+    params = {
+      url: this.rootURL + "/tasks.json",
+      method: 'POST'
+      data: _task
+    }
+    @_request(params)
+      .done((response) =>
+        console.log 'task create'
+        $.publish('task.create', [response]);
+      )
   _request: (params) ->
     deferred = $.ajax(params)
     return deferred.promise()
