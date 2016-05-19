@@ -36,5 +36,4 @@
           $.publish('task:create', [result]);
       )
   _request: (params) ->
-    deferred = $.ajax(params)
-    return deferred.promise()
+    return $.ajax(params)
