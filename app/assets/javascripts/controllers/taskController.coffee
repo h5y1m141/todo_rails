@@ -16,10 +16,10 @@
     $('#title').on 'blur', (event) =>
       @titleValidator.validLength(event.target.value)
         .then( () =>
-          @flashView.hide()
+         $.publish('flash:hide')
         )
         .fail( () =>
-          @flashView.show event.target.value
+          $.publish('flash:alert', [event.target.value])
         )
 
 

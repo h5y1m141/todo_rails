@@ -30,8 +30,10 @@
     }
     @_request(params)
       .done((response) =>
-        console.log 'task create'
-        $.publish('task.create', [response]);
+        if (response)
+          $.publish('form.hide')
+          result = "タイトル：#{response.title}で作成完了しました"
+          $.publish('task:create', [result]);
       )
   _request: (params) ->
     deferred = $.ajax(params)

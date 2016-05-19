@@ -18,4 +18,4 @@
     @$taskView.hide()
 
   _reset: () ->
-    return @$taskDetail.empty()    
+    return @$taskDetail.empty()
