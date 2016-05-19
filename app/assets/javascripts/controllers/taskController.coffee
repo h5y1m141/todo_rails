@@ -15,15 +15,7 @@
 
     $('#title').on 'blur', (event) =>
       @titleValidator.validLength(event.target.value)
-        .then( () =>
-         $.publish('flash:hide')
-        )
-        .fail( () =>
-          $.publish('flash:alert', [event.target.value])
-        )
-
 
     $('#tasks').on 'click', '.task__detail',  (event) =>
       taskID = $(event.target).attr('data-task-id')
       @model.show(taskID)
-
