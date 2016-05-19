@@ -6,7 +6,6 @@
     $.publish('form.show')
     
   hide: () ->
-    console.log 'form.hide'
     $.publish('form.hide')
 
   _update: () ->

@@ -2,10 +2,7 @@
   constructor: () ->
 
   validLength: (str) ->
-    d = new $.Deferred
     if str.length < 10
-      d.resolve()
+      $.publish('flash:hide')
     else
-      d.reject('Error!!')
-
-    return d.promise()
+      $.publish('flash:alert', [str])
