@@ -12,10 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require tinyPubSub
-//= require namespace
-//= require_directory ./validators
-//= require_directory ./models
-//= require_directory ./views
-//= require_directory ./controllers
-//= require main
+//= require_tree .
