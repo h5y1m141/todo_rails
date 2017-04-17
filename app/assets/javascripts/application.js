@@ -19,3 +19,4 @@
 //= require_directory ./views
 //= require_directory ./controllers
 //= require main
+//= require prefectures 
