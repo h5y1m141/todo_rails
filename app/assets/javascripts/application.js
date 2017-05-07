@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require tinyPubSub
 //= require namespace
+//= require vue.min
 //= require prefectureModel
 //= require prefectureAreaView
-//= require prefectures 
+//= require main

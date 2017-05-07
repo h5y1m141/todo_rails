@@ -1,3 +1,10 @@
-<button id="prefectures">都道府県取得</button>
-<div id="area"></div>
+<div id="prefectureArea">
+  <button v-model="prefectureLabel" @click="click">{{ prefectureLabel }} </button>
+  <ul>
+    <li v-for="prefecture in prefectures">
+      {{ prefecture.id }} ：　{{ prefecture.name }}
+    </li>
+  </ul>
+</div>
+
 
