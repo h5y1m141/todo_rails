@@ -2,7 +2,7 @@
   <button v-model="prefectureLabel" @click="click">{{ prefectureLabel }} </button>
   <ul>
     <li v-for="prefecture in prefectures">
-      {{ prefecture.id }} ：　{{ prefecture.name }}
+      <prefecture :prefecture="prefecture"/>
     </li>
   </ul>
 </div>

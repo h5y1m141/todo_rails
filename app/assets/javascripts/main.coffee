@@ -6,6 +6,8 @@ ready = ->
   todo = new Todo.Main()
   vm = new Vue(
     el: '#prefectureArea',
+    components:
+      prefecture: Todo.Prefecture
     data:
       prefectureLabel: '都道府県取'
       prefectures: []
