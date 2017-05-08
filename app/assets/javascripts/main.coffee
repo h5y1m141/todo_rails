@@ -7,7 +7,8 @@ ready = ->
   vm = new Vue(
     el: '#prefectureArea',
     components:
-      prefecture: Todo.Prefecture
+      prefecture: Todo.Prefecture,
+      prefectures: Todo.Prefectures
     data:
       prefectureLabel: '都道府県取'
       prefectures: []

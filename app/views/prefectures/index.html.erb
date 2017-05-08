@@ -1,10 +1,6 @@
 <div id="prefectureArea">
   <button v-model="prefectureLabel" @click="click">{{ prefectureLabel }} </button>
-  <ul>
-    <li v-for="prefecture in prefectures">
-      <prefecture :prefecture="prefecture"/>
-    </li>
-  </ul>
+  <prefectures :items="prefectures"/>
 </div>
 
 
