@@ -10,8 +10,7 @@
       url: this.rootURL + '/api/prefectures.json',
       method: 'GET'
     }
-    @_request(params).done (response) =>
-      $.publish('prefectures.loaded', [response.prefectures]);
+    return @_request(params)
 
   _request: (params) ->
     return $.ajax(params)

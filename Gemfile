@@ -6,7 +6,7 @@ gem 'rails', '4.2.0'
 # Middleware
 gem 'unicorn'
 gem 'mysql2', '~> 0.3.20'
-
+gem 'pg', '~> 0.18.4'
 # View
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
