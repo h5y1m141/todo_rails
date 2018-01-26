@@ -18,20 +18,10 @@ services:
       - 30s
       - -wait
       - tcp://db:3306
-    command: bundle exec unicorn -c config/unicorn/production.rb -E production -D
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/myapp
     ports:
       - "3000:3000"
     depends_on:
       - db
-  nginx:
-    build:
-      context: .
-      dockerfile: dockerfiles/nginx/Dockerfile
-    ports:
-      - "80:80"
-    volumes_from:
-      - web
-    depends_on:
-      - web
