@@ -12,17 +12,12 @@ services:
     build:
       context: .
       dockerfile: dockerfiles/rails/Dockerfile
-    entrypoint:
-      - dockerize
-      - -timeout
-      - 30s
-      - -wait
-      - tcp://db:3306
-    command: bundle exec unicorn -c config/unicorn/production.rb -E production -D
+
+    command: bash -c "ps aux && bundle exec unicorn -E production"
     volumes:
       - .:/myapp
     ports:
-      - "3000:3000"
+      - "5000:5000"
     depends_on:
       - db
   nginx:
