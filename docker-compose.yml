@@ -12,8 +12,7 @@ services:
     build:
       context: .
       dockerfile: dockerfiles/rails/Dockerfile
-
-    command: bash -c "ps aux && bundle exec unicorn -E production"
+    command: bundle exec unicorn -p 5000 -E production 
     volumes:
       - .:/myapp
     ports:
