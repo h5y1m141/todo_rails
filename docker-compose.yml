@@ -4,15 +4,13 @@ services:
     image: mysql:5.6
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
   web:
     build:
       context: .
       dockerfile: dockerfiles/rails/Dockerfile
-    command: bundle exec unicorn -p 5000 -E production 
+    command: bundle exec unicorn -p 5000 -c /myapp/config/unicorn/production.rb -E production 
     volumes:
       - .:/myapp
     ports:
